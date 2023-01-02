@@ -1,0 +1,97 @@
+$layout-vertial-spacing: 1rem;
+
+// This prevents horizontal scrollbars from appearing due to the "width: 100vw"
+// on layout backgrounds.  It's not the best idea and another solution should
+// be found, if possible.
+html {
+  overflow-x: hidden;
+}
+
+.layout {
+  padding-top: $layout-vertial-spacing;
+  padding-bottom: $layout-vertial-spacing;
+}
+
+.layout--bg {
+  position: relative;
+}
+
+.layout--bg .layout__background {
+  bottom: 0;
+  left: 0;
+  margin-left: calc(50% - 50vw);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: -100;
+}
+
+.layout--bg--base-lightest,
+.layout--bg--base-lightest .layout__background {
+  @include bg-base-lightest();
+}
+
+.layout--bg--primary-dark,
+.layout--bg--primary-dark .layout__background {
+  @include bg-primary-dark();
+}
+
+.layout--bg--primary-darker,
+.layout--bg--primary-darker .layout__background {
+  @include bg-primary-darker();
+}
+
+.layout__header__title,
+.layout__header__subtitle {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+.layout__header__title:after {
+  content: ' ';
+  background-color: $theme-color-primary-light;
+  display: block;
+  margin: .5rem auto;
+  height: 2px;
+  width: 20%;
+}
+
+.layout__header__subtitle {
+  font-size: $theme-lead-font-size;
+  line-height: $theme-lead-line-height;
+}
+
+.layout__region,
+.layout__region .block {
+  margin-top: $layout-vertial-spacing;
+  margin-bottom: $layout-vertial-spacing;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  > h2:first-child {
+    margin-top: .5rem;
+  }
+}
+
+@include media($layout-sm) {
+  .layout__region {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Override Layout Builder's default block padding in layout mode.  It causes
+// blocks to be previewed with smaller widths than what they have on the
+// rendered page.
+.layout-builder-block {
+  padding: .2em;
+}
+

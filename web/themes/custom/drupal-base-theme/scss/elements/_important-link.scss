@@ -1,0 +1,36 @@
+a.important-link {
+  background-color: #eff6fb;
+  border: 2px solid #aacdec;
+  display: block;
+  font-weight: 700;
+  padding: 15px 15px;
+  text-decoration: none;
+  color: $theme-color-primary !important;
+
+  &:active {
+    color: $theme-color-primary-darker !important;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $theme-link-visited-color !important;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    background-color: #eff6fb;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.25);
+    color: $theme-color-primary-darker !important;
+  }
+
+  &::after {
+    content: "\e092";
+    font-family: "Glyphicons Halflings";
+    font-weight: normal;
+    margin-left: .5rem;
+    position: relative;
+    top: 2px;
+    opacity: .5;
+  }
+}
+

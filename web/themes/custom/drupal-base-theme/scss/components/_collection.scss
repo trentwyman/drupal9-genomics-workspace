@@ -1,0 +1,102 @@
+$collection-thumb-width: 5rem;
+$collection-thumb-width-mobile: 4rem;
+$collection-thumb-margin: 1rem;
+
+.usa-collection {
+  font-family: $theme-font-type-sans;
+  font-size: 1.06rem;
+  line-height: 1.3;
+  padding-left: 0;
+}
+
+.usa-collection__item {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style-type: none;
+  padding-left: 0;
+  align-items: flex-start;
+  border-top: 1px;
+  border-top-style: solid;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.usa-collection__img,
+.usa-collection__calendar-date {
+  flex-shrink: 0;
+  width: $collection-thumb-width-mobile;
+  margin-right: $collection-thumb-margin;
+
+  @include media($md) {
+    width: $collection-thumb-width;
+  }
+}
+
+.usa-collection__body {
+  flex: 1 1 0%;
+}
+
+.usa-collection__heading {
+  font-family: $theme-font-type-sans;
+  font-size: 1.13rem;
+  line-height: 1.3;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.usa-collection__description {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+// Tag list styles were moved to scss/components/_tags-list.scss.
+
+.usa-collection__calendar-date {
+  text-decoration: none;
+}
+
+.usa-collection__calendar-date-month,
+.usa-collection__calendar-date-day {
+  font-family: $theme-font-type-sans;
+  font-size: 1.13rem;
+  display: block;
+  font-weight: $theme-font-weight-bold;
+  padding: .25rem;
+  text-align: center;
+
+  @include media($md) {
+    padding: .5rem;
+  }
+}
+
+.usa-collection__calendar-date-month {
+  background-color: $theme-color-primary;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.usa-collection__calendar-date-day {
+  background-color: #ffffff;
+  border: 1px solid $theme-color-primary;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  color: $theme-color-primary;
+}
+
+.usa-collection--condensed {
+  .usa-collection__item {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding-top: .5rem;
+  }
+}
+
+.usa-collection + .field--type-link a.usa-button {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+

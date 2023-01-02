@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override of a FAQ Field details formatter.
+ *
+ * CHANGELOG
+ * - Overrode to add our classes and the polyfill.
+ *
+ * Available variables:
+ * - question: Prefiltered question value by check_plain.
+ * - answer: Prefiltered answer value by field setting format.
+ * - delta: Delta # of field element.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_faqfield_details_formatter()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('drupal_base_theme/details_element_polyfill') }}
+{%
+  set classes = [
+    'nal-details',
+    'nal-details--faq',
+    'clearfix',
+  ]
+%}
+<details{{ attributes.addClass(classes) }}>
+  <summary{{ title_attributes.addClass('nal-details__title') }}>{{ question }}</summary>
+  <div class="nal-details__content">
+    {{ answer }}
+  </div>
+</details>
+

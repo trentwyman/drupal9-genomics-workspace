@@ -1,0 +1,29 @@
+custom_blast.api_config_page:
+  path: '/admin/config/blast_api'
+  defaults:
+    _form: '\Drupal\custom_blast\Form\BlastAPI'
+    _title: 'API Settings'
+  requirements:
+    _permission: 'access content'
+    
+custom_blast.blast:
+  path: '/blast'
+  defaults: 
+    _controller: '\Drupal\custom_blast\Controller\CustomBlast::blast_form'
+    _title: 'BLAST'
+  requirements:
+    _permission: 'access content'
+custom_blast.hmmer:
+  path: '/hmmer'
+  defaults: 
+    _controller: '\Drupal\custom_blast\Controller\CustomBlast::hmmer_form'
+    _title: 'HMMER'
+  requirements:
+    _permission: 'access content'
+custom_blast.clustal:
+  path: '/clustal'
+  defaults: 
+    _controller: '\Drupal\custom_blast\Controller\CustomBlast::clustal_form'
+    _title: 'CLUSTAL'
+  requirements:
+    _permission: 'access content'

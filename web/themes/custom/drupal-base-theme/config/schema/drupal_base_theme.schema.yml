@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the drupal_base_theme theme.
+
+drupal_base_theme.settings:
+  type: theme_settings
+  label: 'NAL Drupal 8 base theme settings'

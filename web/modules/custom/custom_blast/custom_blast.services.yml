@@ -1,0 +1,4 @@
+services:
+  custom_blast.api_connector:
+    class: Drupal\custom_blast\BlastAPIConnector
+    arguments: ['@http_client_factory']

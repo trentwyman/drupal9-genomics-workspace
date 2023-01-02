@@ -1,0 +1,47 @@
+/*
+========================================
+GENERAL SETTINGS
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Paths
+----------------------------------------
+*/
+
+// Set the directory for the theme root used to locate images, fonts etc.
+$theme-root: '..';
+
+// Set other directories relative to theme root.
+$image-path: '#{$theme-root}/images' !default;
+$font-path: '#{$theme-root}/fonts' !default;
+$icon-font-path: '#{$theme-root}/bootstrap/assets/fonts/bootstrap/' !default;
+
+/*
+----------------------------------------
+Breakpoints
+----------------------------------------
+*/
+
+$xs: 480px !default;
+$layout-sm: 640px !default;
+$sm: 768px !default;
+$md: 992px !default;
+$lg: 1200px !default;
+
+$theme-navigation-width: $md !default;
+
+/*
+----------------------------------------
+Focus styles
+----------------------------------------
+*/
+
+$theme-focus-color:  #009ec1 !default; //cyan-40v
+$theme-focus-offset: 0 !default;
+$theme-focus-style:  solid !default;
+$theme-focus-width:  .25rem !default;
+
+$theme-card-max-width: 360px;
+

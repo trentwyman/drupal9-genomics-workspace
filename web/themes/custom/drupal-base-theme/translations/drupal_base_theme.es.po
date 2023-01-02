@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: drupal_base_theme\\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\\n"
+
+msgid "Policies and Links"
+msgstr "Políticas y Enlaces"
+
+msgid "Plain Writing"
+msgstr "Lenguaje Simple"
+
+msgid "Accessibility Statement"
+msgstr "Declaración de Accesibilidad"
+
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+msgid "Non-Discrimination Statement"
+msgstr "Declaración de No Discriminación"
+
+msgid "Civil Rights Policy"
+msgstr "Política Contra el Acoso"
+
+msgid "Information Quality"
+msgstr "Calidad de la Información"
+
+msgid "National Agricultural Library"
+msgstr "Servicio de Investigación en Agricultura"
+
+msgid "Agricultural Research Service"
+msgstr "Biblioteca Nacional de Agricultura"
+
+msgid "Sign up for ARS News updates"
+msgstr "Regístrate para recibir actualizaciones de las noticias del ARS"
+
+msgid "Your email address"
+msgstr "Tu correo electrónico"
+
+msgid "Sign Up"
+msgstr "Regístrate"
+
+msgid "An official website of the United States government"
+msgstr "Un sitio oficial del Gobierno de Estados Unidos"
+
+msgid "Here&apos;s how you know"
+msgstr "Así es como usted puede verificarlo"
+
+msgid ""
+"<strong>Official websites use .gov</strong>\n"
+"            <br>\n"
+"      "
+"      A <strong>.gov</strong> website belongs to an official "
+"government organization in the United States."
+msgstr ""
+"<strong>Los sitios web oficiales usan .gov</strong>\r\n"
+"<br>\r\n"
+"Un "
+"sitio web <strong>.gov</strong> pertenece a una organización oficial "
+"del Gobierno de Estados Unidos."
+
+msgid ""
+"<strong>Secure .gov websites use HTTPS</strong>\n"
+"            <br>\n"
+"  "
+"          A <strong>lock</strong> ( @lock_icon ) or "
+"<strong>https://</strong> means you&apos;ve safely connected to the "
+".gov website. Share sensitive information only on official, secure "
+"websites."
+msgstr ""
+"<strong>Los sitios web seguros .gov usan "
+"HTTPS</strong>\r\n"
+"<br>\r\n"
+"Un <strong>candado</strong> ( @lock_icon ) "
+"o <strong>https://</strong> significa que usted se conectó de forma "
+"segura a un sitio web .gov. Comparta información sensible sólo en "
+"sitios web oficiales y seguros."
+

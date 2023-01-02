@@ -1,0 +1,15 @@
+//
+// Contains styles for the toc_js block.
+//
+
+// Replace the bugged default "position: fixed" stickiness of the block with a
+// more modern "position: sticky" alternative.
+.block-toc-js--sticky {
+  position: sticky;
+  top: 0;
+}
+
+.toc-js.sticky.is-sticked {
+  position: static !important;
+}
+

@@ -1,0 +1,8 @@
+{
+  "name": "isdapps/drupal-base-theme",
+  "description": "The base theme for NAL websites.  Built using Bootstrap.  Contains basic styles and templates.",
+  "type": "drupal-custom-theme",
+  "require": {
+    "drupal/bootstrap": "^3.22"
+  }
+}

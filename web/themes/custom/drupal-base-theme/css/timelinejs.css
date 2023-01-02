@@ -1,0 +1,132 @@
+/*
+========================================
+COLOR SETTINGS
+----------------------------------------
+The color settings here are based off
+the USWDS color palette, but we're
+not utilizing the color tokens.
+
+Read the USWDS color system at:
+https://v2.designsystem.digital.gov/style-tokens/color
+----------------------------------------
+*/
+/*
+----------------------------------------
+Theme palette colors
+----------------------------------------
+*/
+/*
+----------------------------------------
+State palette colors
+----------------------------------------
+*/
+/*
+----------------------------------------
+General colors
+----------------------------------------
+*/
+/* line 7, ../scss/components/_timelinejs.scss */
+.tl-timeline {
+  border: 1px solid #71767a;
+  border-radius: 4px;
+  margin-top: 1em;
+}
+/* line 12, ../scss/components/_timelinejs.scss */
+.tl-timeline * {
+  box-sizing: content-box;
+}
+/* line 19, ../scss/components/_timelinejs.scss */
+.tl-timeline h2.tl-headline-title,
+.tl-timeline h2.tl-headline {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+/* line 26, ../scss/components/_timelinejs.scss */
+.tl-menubar {
+  border: 1px solid #005ea2;
+  border-left: 0;
+}
+
+/* line 31, ../scss/components/_timelinejs.scss */
+.tl-menubar-button {
+  color: #005ea2;
+}
+/* line 34, ../scss/components/_timelinejs.scss */
+.tl-menubar-button:hover {
+  background-color: #005ea2;
+  color: #fff;
+}
+
+/* line 40, ../scss/components/_timelinejs.scss */
+.tl-slide a {
+  color: #005ea2;
+}
+
+/* line 46, ../scss/components/_timelinejs.scss */
+.tl-slide a:focus,
+.tl-slide a:hover,
+.tl-timeline p a:focus,
+.tl-timeline p a:hover {
+  color: #1a4480;
+}
+
+/* line 52, ../scss/components/_timelinejs.scss */
+.tl-slide.tl-full-color-background a:hover,
+.tl-slide.tl-full-image-background a:hover,
+.tl-full-color-background .tl-text a:hover,
+.tl-full-color-background .tl-text p a:hover,
+.tl-full-image-background .tl-text a:hover,
+.tl-full-image-background .tl-text p a:hover {
+  color: #d9e8f6;
+}
+
+/* line 61, ../scss/components/_timelinejs.scss */
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon,
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon {
+  color: #005ea2;
+}
+
+/* line 66, ../scss/components/_timelinejs.scss */
+.tl-slidenav-previous .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-title,
+.tl-slidenav-previous:hover .tl-slidenav-description,
+.tl-slidenav-next:hover .tl-slidenav-description {
+  opacity: .75;
+}
+
+/* line 73, ../scss/components/_timelinejs.scss */
+.tl-timegroup .tl-timegroup-message {
+  color: #71767a;
+}
+
+/* line 77, ../scss/components/_timelinejs.scss */
+.tl-text,
+.tl-text p,
+.tl-text h3.tl-headline-date {
+  color: #3d4551;
+}
+
+/* line 83, ../scss/components/_timelinejs.scss */
+.tl-credit p {
+  color: #000;
+  font-size: 12px;
+}
+
+/* line 88, ../scss/components/_timelinejs.scss */
+.tl-timemarker:hover .tl-timemarker-content-container {
+  background-color: #71767a;
+  border-color: #565c65;
+}
+
+/* line 93, ../scss/components/_timelinejs.scss */
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^='tl-icon-'],
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text {
+  color: #565c65;
+}
+
+/* line 99, ../scss/components/_timelinejs.scss */
+.tl-timemarker-media-container {
+  display: none;
+}

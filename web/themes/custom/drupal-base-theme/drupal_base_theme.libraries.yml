@@ -1,0 +1,56 @@
+details_element_polyfill:
+  js:
+    js/details-element-polyfill.js: { }
+
+framework:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    bootstrap/assets/javascripts/bootstrap/affix.js: {}
+    bootstrap/assets/javascripts/bootstrap/alert.js: {}
+
+    # The button.js was preventing Drupal modals from working properly.  I
+    # disabled rather than removing it entirely in case it's ever needed.  It
+    # shouldn't be re-enabled without thorough testing.  If it's needed, then
+    # try to include it in a separate library that can be attached to specific
+    # pages that require it, avoiding the conflict with modal dialogs.
+    # @see https://github.com/isdapps/NAL-core/issues/953
+    # @see https://github.com/isdapps/NAL-core/issues/954
+
+    # bootstrap/assets/javascripts/bootstrap/button.js: {}
+
+    bootstrap/assets/javascripts/bootstrap/carousel.js: {}
+    bootstrap/assets/javascripts/bootstrap/collapse.js: {}
+    bootstrap/assets/javascripts/bootstrap/dropdown.js: {}
+    bootstrap/assets/javascripts/bootstrap/modal.js: {}
+    bootstrap/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap/assets/javascripts/bootstrap/popover.js: {}
+    bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
+    bootstrap/assets/javascripts/bootstrap/tab.js: {}
+    bootstrap/assets/javascripts/bootstrap/transition.js: {}
+
+off_canvas:
+  css:
+    theme:
+      css/off-canvas.css: {}
+
+official_website_banner:
+  js:
+    js/official_website_banner.js: { }
+  dependencies:
+    - core/jquery
+
+timelinejs:
+  css:
+    theme:
+      css/timelinejs.css: {}
+
+anchor_link:
+  js:
+    js/modal_dialog.js: {}
+
+tabledrag:
+  js:
+    js/tabledrag.js: {}
+

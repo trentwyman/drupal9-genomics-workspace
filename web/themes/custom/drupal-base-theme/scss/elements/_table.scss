@@ -1,0 +1,55 @@
+table {
+  thead {
+    th {
+      font-weight: $theme-font-weight-bold;
+    }
+
+    th,
+    td {
+      background-color: $theme-color-base-lightest;
+    }
+  }
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    // This overrides styles from Bootstrap that prevent top and bottom borders
+    // on table header cells.
+    border: 1px solid $theme-color-base-dark !important;
+    padding: 1rem .5rem;
+  }
+
+  caption {
+    color: $theme-color-base-ink;
+    font-family: $theme-font-type-serif;
+    font-weight: $theme-font-weight-bold;
+    font-size: .91476rem;
+    text-align: left;
+    margin-bottom: .75rem;
+    padding: 0;
+  }
+}
+
+table.borderless {
+  thead {
+    th {
+      background-color: transparent;
+      border-top: 0;
+    }
+  }
+
+  th,
+  td {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  th {
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}

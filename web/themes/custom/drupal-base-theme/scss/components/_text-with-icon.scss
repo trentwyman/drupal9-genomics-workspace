@@ -1,0 +1,32 @@
+$icon-width: 120px;
+$icon-margin: 1rem;
+
+.text-with-icon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.text-with-icon__title {
+  margin-top: .5rem;
+}
+
+.text-with-icon__body {
+  flex: 0 1 auto;
+}
+
+@include media($sm) {
+  .text-with-icon__icon {
+    flex: 0 0 $icon-width;
+    margin-right: $icon-margin;
+    margin-left: $icon-margin;
+  }
+
+  .text-with-icon__body {
+    flex: 0 1 calc(100% - #{$icon-width} - #{$icon-margin * 2});
+    // This min-width was set arbitarily at a point where the body text seemed
+    // to get too squished.
+    min-width: 300px;
+  }
+}
+

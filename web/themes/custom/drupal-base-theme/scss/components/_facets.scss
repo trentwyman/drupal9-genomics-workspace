@@ -1,0 +1,53 @@
+//
+// @file
+// Contains styles for search facets.
+//
+
+.facets-widget-checkbox {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+.facet-item {
+  label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: .9em;
+    font-weight: normal;
+    margin: 0 0 .5em .25em;
+    vertical-align: middle;
+    width: 90%;
+  }
+}
+
+.js-facets-checkbox-links .facet-item--expanded ul {
+  padding-left: 1.25rem
+}
+
+.block-facets-summary > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 0;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .usa-tag {
+    background-image: url(/core/misc/icons/545560/ex.svg);
+    background-repeat: no-repeat;
+    background-position: center right .25rem;
+    background-size: auto 65%;
+    padding-right: 1.4rem;
+  }
+}
+

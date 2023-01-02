@@ -1,0 +1,104 @@
+
+<fieldset id="fieldset-datasets">
+    <legend>{{content.tool_name}} Databases </legend>
+    <div id="box-organisms">
+    <fieldset class="organism" id="fieldset-organism">
+        <legend id="legend-Organisms">Organisms</legend>
+        <label id="organism-checkbox[]-error" class="error" for="organism-checkbox[]">Please choose at least one organism</label>
+
+        <div id="box-organism">
+            <label>
+                <div organism="all" class="all organism-div">
+                    <input type="checkbox" organism="all" class="all-organism-checkbox">All organisms
+                </div>
+            </label>
+            {% for organism in content.organisms  %}
+            <label>
+                <div organism="{{ organism.machine_name }}" class="organism-div italic">
+                    <input 
+                    organism="{{ organism.machine_name }}" 
+                    id="{{ organism.machine_name }}" 
+                    type="checkbox" 
+                    class="organism-checkbox {{ organism.machine_name }} error" 
+                    name="organism-checkbox[]" 
+                    aria-required="true"
+                    >
+                    {{ organism.name }}
+                </div>
+            </label>
+            {% endfor %}
+        </div>
+    </fieldset>
+    </div>
+
+    <div id="box-datasets">
+		<div class="datasets-div all" style="">
+			<div class="dataset-title">All organisms</div><label id="db-name-error" class="error" style=""></label>
+      {% if content.database_totals.nucleotide_genome_assembly + content.database_totals.nucleotide_transcript > 0 %}      
+			<fieldset class="nucleotide">
+				<legend>Nucleotide</legend>
+				<div><label><input type="checkbox" name="dataset-checkbox[]" organism="all" dataset-type="genome-assembly" class="all-dataset-checkbox nucleotide genome-assembly">Genome Assembly - {{content.database_totals.nucleotide_genome_assembly}} databases</label></div>
+				<div><label><input type="checkbox" name="dataset-checkbox[]" organism="all" dataset-type="transcript" class="all-dataset-checkbox nucleotide transcript">Transcript - {{content.database_totals.nucleotide_transcript}} databases</label></div>
+			</fieldset>
+      {% endif %}
+ 
+      {% if content.database_totals.peptide_protein > 0 %}
+			<fieldset class="peptide">
+				<legend>Peptide</legend>
+				<div><label><input type="checkbox" name="dataset-checkbox[]" organism="all" dataset-type="protein" class="all-dataset-checkbox peptide protein">Protein - {{ content.database_totals.peptide_protein }} databases</label></div>
+			</fieldset>
+      {% endif %}
+
+		</div>
+    
+        {% for organism in content.organisms  %}
+            
+        <div class="{{organism.machine_name}} datasets-div" style="display:none">
+            <div class="dataset-title">{{organism.name}}</div>
+            <label id="db-name-error" class="error" style="display:none"></label>
+            {% if organism.has_nucleotides %}
+            <fieldset class="nucleotide">
+                <legend>Nucleotide</legend>
+                {% for nucleotide in organism.nucleotides %}
+                <label>
+                    <div>
+                        <input 
+                        type="checkbox" 
+                        name="db-name" 
+                        value="{{nucleotide.value_id}}" 
+                        id="{{nucleotide.value_id}}" 
+                        organism="{{organism.machine_name}}" 
+                        dataset-type="{{nucleotide.machine_dataset_type}}" 
+                        class="dataset-checkbox {{organism.machine_name}} {{nucleotide.machine_dataset_type}} nucleotide">
+                        {{nucleotide.dataset_type}} - {{nucleotide.full_label}}
+                    </div>
+                </label>
+                {% endfor %} 
+            </fieldset>
+            {% endif %}
+
+            {% if organism.has_peptides %}
+            <fieldset class="peptide">
+                <legend>Peptide</legend>
+                {% for peptide in organism.peptides %}
+                <label>
+                    <div>
+                        <input 
+                        type="checkbox" 
+                        name="db-name" 
+                        value="{{peptide.value_id}}" 
+                        id="{{peptide.value_id}}" 
+                        organism="{{organism.machine_name}}" 
+                        dataset-type="{{peptide.machine_dataset_type}}" 
+                        class="dataset-checkbox {{organism.machine_name}} {{peptide.machine_dataset_type}} peptide">
+                        {{peptide.dataset_type}} - {{peptide.full_label}}
+                    </div>
+                </label>
+                {% endfor %}
+            </fieldset>
+            {% endif %}
+        </div>  
+        {% endfor %}  
+    </div>
+    
+</fieldset>

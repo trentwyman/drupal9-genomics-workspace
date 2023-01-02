@@ -1,0 +1,10 @@
+.s-la-widget {
+  input[type='file']:focus + label.btn {
+    @include focus-outline;
+  }
+
+  .btn-default {
+    border-color: $theme-color-base;
+  }
+}
+

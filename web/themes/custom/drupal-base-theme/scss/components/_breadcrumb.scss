@@ -1,0 +1,5 @@
+// 508: Increase the color contrast for crumb separators.
+.breadcrumb > li + li:before {
+  color: $theme-color-base-dark;
+}
+

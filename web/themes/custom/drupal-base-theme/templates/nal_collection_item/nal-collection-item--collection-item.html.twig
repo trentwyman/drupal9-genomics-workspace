@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Theme override to display a Collection Item as a collection item.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_nal_collection_item()
+ *
+ * @ingroup themeable
+ */
+#}
+<li{{ attributes.addClass('usa-collection__item') }}>
+  {% block body %}
+    <div class="usa-collection__body">
+      <h3 class="usa-collection__heading">
+        {{ title_prefix }}
+        <a class="usa-link" href="{{ url }}">{{ title }}</a>
+        {{ title_suffix }}
+      </h3>
+      {% if description %}
+        <div class="usa-collection__description">{{ description }}</div>
+      {% endif %}
+      {% if content %}
+        <ul class="usa-collection__meta" aria-label="More information">
+          {{ content }}
+        </ul>
+      {% endif %}
+      {% if tags %}
+        {{ tags }}
+      {% endif %}
+    </div>
+  {% endblock %}
+</li>
+

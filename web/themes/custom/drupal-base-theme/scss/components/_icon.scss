@@ -1,0 +1,37 @@
+//
+// The classes are prefixed by 'media--' to avoid collisions with other icon
+// classes.
+//
+.media--icon {
+  font-size: 1.06rem;
+  line-height: 1.5;
+  width: 150px;
+}
+
+.media--icon__link {
+  align-items: center;
+  color: $theme-color-base-ink;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.media--icon__image {
+  flex-shrink: 0;
+}
+
+.media--icon__title {
+  font-size: 1.34rem;
+  font-weight: $theme-font-weight-bold;
+  margin-top: 1rem;
+  max-width: 100%; // Required for IE11
+  text-align: center;
+}
+
+.media--icon__body {
+  margin-top: 1em;
+  max-width: 100%; // Required for IE11
+  text-align: center;
+}
+

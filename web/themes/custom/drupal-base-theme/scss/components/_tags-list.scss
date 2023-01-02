@@ -1,0 +1,33 @@
+// Selectors for .usa-collection__meta were moved here to provide consistent
+// styles with the .nal-tag-list.
+.usa-collection__meta,
+.nal-tags-list {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: .25rem;
+}
+
+.usa-collection__meta > li,
+.nal-tags-list li {
+  margin-top: .25rem;
+  font-family: $theme-font-type-sans;
+  display: block;
+  margin-right: .5rem;
+}
+
+.usa-collection__meta li.usa-tag,
+.nal-tags-list li.usa-tag {
+  line-height: .9;
+  padding-bottom: .25rem;
+  padding-top: .25rem;
+  display: inline-block;
+  margin-top: .25rem;
+}
+
+// Attempt to reset the bullet of nested list items back to the dot style.
+.usa-collection__meta-item .field > ul > li {
+  list-style: initial;
+}
+

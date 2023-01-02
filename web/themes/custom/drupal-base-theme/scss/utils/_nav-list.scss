@@ -1,0 +1,88 @@
+@mixin nav-list($mode: 'light'){
+
+  $color: $theme-color-base-dark;
+  $border-color: $theme-color-base-lighter;
+  $hover-text-color: $theme-color-primary;
+  $hover-bg-color: $theme-color-base-lightest;
+
+
+  @if($mode == 'dark'){
+    $color: #fff;
+    $border-color: #fff;
+    $hover-text-color: #fff;
+    $hover-bg-color: $theme-color-primary;
+  }
+
+  @include unstyled-list;
+
+  li {
+    border-top: 1px solid $border-color;
+
+    &:first-child { border-top: none; }
+
+    &.active a {
+      background-color: transparent;
+    }
+  }
+
+  button {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+  }
+
+  a, button {
+    color: $color;
+    display: block;
+    padding: .75rem 1rem;
+    text-decoration: none;
+    white-space: normal;
+
+    &:hover {
+      background-color: $hover-bg-color;
+      color: $hover-text-color;
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline-offset: 0;
+    }
+
+    &.is-active {
+      color: $hover-text-color;
+      font-weight: $theme-font-weight-bold;
+      @include add-bar('left', $hover-text-color);
+    }
+  }
+
+}
+
+@mixin nav-sublist {
+  @include unstyled-list;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1rem;
+
+  li {
+    border-top: 1px solid $theme-color-base-lighter;
+
+    // level 2+
+    a {
+      padding-left: 2rem;
+    }
+
+    // level 3+
+    & & a {
+      padding-left: 3rem;
+    }
+
+    // level 4+
+    & & & a {
+      padding-left: 4rem;
+    }
+
+  }
+
+}

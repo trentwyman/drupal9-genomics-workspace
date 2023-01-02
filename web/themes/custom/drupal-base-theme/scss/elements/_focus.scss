@@ -1,0 +1,38 @@
+// Focus Styles
+// -------------------------------------
+
+// Links
+a:focus {
+  @include focus-outline;
+}
+
+//Menu Links (for dropdowns)
+.navbar-default .navbar-nav > li > a:focus {
+  @include focus-outline;
+}
+
+//Inputs
+input,
+select,
+textarea,
+.form-control {
+  &:focus {
+    @include focus-outline;
+  }
+}
+
+//Buttons
+button,
+button.dropdown-toggle,
+.btn-primary,
+.btn-default,
+.btn-info {
+  &:focus {
+    @include focus-outline;
+  }
+}
+
+//Focus class
+.focusable:focus {
+  @include focus-outline;
+}

@@ -1,0 +1,30 @@
+a.ext {
+  display: inline-block;
+  padding-right: .7em;
+  position: relative;
+
+  &::after {
+    background: url('../images/external-link.svg') no-repeat center/contain;
+    background-position: center;
+    content: "";
+    display: inline-block;
+    height: .7em;
+    margin-left: 2px;
+    margin-top: .3em;
+    position: absolute;
+    width: .7em;
+
+    @supports ((-webkit-mask:url()) or (mask:url())) {
+      background: 0 0;
+      background-color: currentColor;
+      -webkit-mask: url('../images/external-link.svg') no-repeat center/contain;
+      mask-image: url('../images/external-link.svg') no-repeat center/contain;
+    }
+  }
+}
+
+// Hide the default icon that is added by the External Links module.
+a.ext svg.ext {
+  display: none;
+}
+

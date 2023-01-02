@@ -1,0 +1,38 @@
+/**
+ * Styles for the site branding in the page header.
+ */
+
+$tablet: "screen and (min-width: #{$screen-xs-min})";
+
+.site-branding {
+  display: flex;
+  margin: 8px 0;
+
+  &__usda-logo {
+    align-self: start;
+    margin: 0 10px 0 0;
+    width: 4.25rem;
+  }
+
+  &__text {
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__site-name {
+    font-size: 1.375rem;
+    line-height: 1.7rem;
+  }
+
+  &__usda {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+}
+

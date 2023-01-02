@@ -1,0 +1,246 @@
+// Buttons variables
+
+$theme-button-border-radius: .25rem;
+$theme-button-font-family: $theme-font-type-sans;
+$theme-button-stroke-width: 2px;
+$button-stroke: inset 0 0 0 $theme-button-stroke-width;
+
+// Buttons
+
+.usa-button,
+button.btn,
+input.btn,
+button.btn-primary,
+input.btn-primary,
+button.btn-info,
+input.btn-info {
+  font-family:$theme-button-font-family;
+  font-size: 1.06rem;
+  line-height: .9;
+  color: #fff;
+  background-color: $theme-color-primary;
+  appearance: none;
+  border: 0;
+  border-radius: $theme-button-border-radius;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin-right: .5rem;
+  // This is a custom margin-top to add spacing between elements.
+  margin-top: 1rem;
+  padding: .75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+
+  @include media($xs) {
+    width: auto;
+  }
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    background-color: $theme-color-primary-dark;
+    border-bottom: 0;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: $theme-color-primary-darker;
+  }
+
+  &:not([disabled]):focus,
+  &:not([disabled]).usa-focus {
+    outline-offset: .25rem;
+  }
+
+  &:disabled {
+    @include button-disabled;
+  }
+}
+
+// 508: Override Bootstrap's low-contrast background color.
+.btn-info:focus,
+.btn-info.focus {
+  background-color: $theme-color-primary;
+}
+
+.usa-button--accent-cool {
+  background-color: $theme-color-accent-cool;
+
+  &:visited {
+    background-color: $theme-color-accent-cool;
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    background-color: $theme-color-accent-cool-dark;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: $theme-color-accent-cool-darker;
+  }
+}
+
+.usa-button--outline,
+button.btn-default {
+  background-color: transparent;
+  box-shadow: $button-stroke $theme-color-primary;
+  color: $theme-color-primary;
+
+  &:visited {
+    color: $theme-color-primary;
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    background-color: transparent;
+    box-shadow: $button-stroke $theme-color-primary-dark;
+    color: $theme-color-primary-dark;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: transparent;
+    box-shadow: $button-stroke $theme-color-primary-darker;
+    color: $theme-color-primary-darker;
+  }
+}
+
+.usa-button--base {
+  background-color: $theme-color-base;
+
+  &:hover,
+  &.usa-button--hover {
+    background-color: $theme-color-base-dark;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: $theme-color-base-darker;
+  }
+}
+
+.usa-button--secondary {
+  background-color: $theme-color-secondary;
+
+  &:hover,
+  &.usa-button--hover {
+    background-color: $theme-color-secondary-dark;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: $theme-color-secondary-darker;
+  }
+
+  &:active,
+  &.usa-button--active {
+    background-color: transparent;
+    box-shadow: $button-stroke $theme-color-primary-darker;
+    color: $theme-color-primary-darker;
+  }
+
+  &.usa-button--inverse {
+    $button-inverse-color: $theme-link-reverse-color;
+    $button-inverse-hover-color: $theme-link-reverse-hover-color;
+    $button-inverse-active-color: $theme-link-reverse-active-color;
+
+    box-shadow: $button-stroke $theme-color-base-lighter;
+    color: $button-inverse-color;
+
+    &:visited {
+      color: $button-inverse-color;
+    }
+
+    &:hover,
+    &.usa-button--hover {
+      box-shadow: $button-stroke $button-inverse-hover-color;
+      color: $button-inverse-hover-color;
+    }
+
+    &:active,
+    &.usa-button--active {
+      background-color: transparent;
+      box-shadow: $button-stroke $button-inverse-active-color;
+      color: $button-inverse-active-color;
+    }
+
+    &.usa-button--unstyled {
+      @include button-unstyled;
+      color: $button-inverse-color;
+
+      &:visited {
+        color: $button-inverse-color;
+      }
+
+      &:hover,
+      &.usa-button--hover {
+        color: $button-inverse-hover-color;
+      }
+
+      &:active,
+      &.usa-button--active {
+        color: $button-inverse-active-color;
+      }
+    }
+  }
+}
+
+.usa-button--big {
+  border-radius: $theme-button-border-radius;
+  font-size: 1.33rem;
+  padding: 1rem 1.5rem;;
+}
+
+.usa-button--disabled {
+  @include button-disabled;
+}
+
+.usa-button--outline-disabled,
+.usa-button--outline-inverse-disabled,
+.usa-button--outline:disabled,
+.usa-button--outline-inverse:disabled,
+.usa-button--outline-inverse:disabled {
+  background-color: transparent;
+  pointer-events: none;
+
+  &:hover,
+  &.usa-button--hover,
+  &:active,
+  &.usa-button--active,
+  &:focus,
+  &.usa-focus {
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.usa-button--outline-disabled,
+.usa-button--outline:disabled {
+  box-shadow: $button-stroke $theme-color-disabled;
+  color: $theme-color-disabled;
+  &.usa-button--inverse {
+    background-color: transparent;
+    box-shadow: $button-stroke $theme-color-base;
+    color: $theme-color-base;
+  }
+}
+
+.usa-button--unstyled {
+  @include button-unstyled;
+}
+
+.btn-group .dropdown-toggle:active:focus,
+.btn-group.open .dropdown-toggle:focus {
+  outline: #009ec1;
+  outline-style: solid;
+  outline-width: 0.25rem;
+}
+

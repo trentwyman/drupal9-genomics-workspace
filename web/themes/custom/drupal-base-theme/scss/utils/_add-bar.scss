@@ -1,0 +1,32 @@
+@mixin add-bar($side: 'left', $color: $theme-color-primary){
+  position: relative;
+
+  &:after{
+    background-color: $color;
+    content: "";
+    display: block;
+    position: absolute;
+
+
+    @if ($side == 'left'){
+      border-radius: 99rem;
+      bottom: .25rem;
+      top: .25rem;
+      width: .25rem;
+      left: 0;
+    }
+
+    @else if($side == 'bottom'){
+      height: .25rem;
+      left: 1rem;
+      right: 1rem;
+      bottom: -.25rem;
+    }
+  }
+}
+
+@mixin remove-bar {
+  &:after {
+    display: none;
+  }
+}

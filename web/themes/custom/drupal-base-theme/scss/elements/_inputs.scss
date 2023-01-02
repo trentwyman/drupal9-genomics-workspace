@@ -1,0 +1,158 @@
+//Block input elements
+.form-control{
+  border: 1px solid $theme-color-base-dark;
+  border-radius: 0;
+  color: $theme-color-base-ink; //standardize on firefox
+  font-size: $theme-body-font-size;
+  height: 2.5rem;
+  margin-top: .5rem;
+  padding: .5rem;
+  display: block;
+}
+
+label {
+  display: block;
+  line-height: 1.12707;
+  margin-top: 1.5rem;
+  max-width: 30rem;
+}
+
+// Remove the top margin for Views inline form labels.
+.views-exposed-form .form--inline label {
+  margin-top: 0;
+}
+
+// Text Inputs
+.form-text::placeholder {
+  color: $theme-color-base;
+}
+
+//Select
+.select-wrapper select.form-select {
+  background-color: white;
+  background-image: url('#{$image-path}/arrow-both.svg');
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: .5rem;
+  padding-right: 2rem;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  //Show default webkit style on select element when autofilled to show icon
+  &:-webkit-autofill {
+    appearance: menulist;
+  }
+
+  //Remove dotted outline from select element on focus in Firefox
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 black;
+  }
+}
+
+.has-glyphicons .select-wrapper:after {
+  content: ''; //remove select arrow from bootstrap
+}
+
+// Custom Checkboxes
+
+.form-checkbox,
+.form-radio {
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label
+  @include sr-only;
+}
+
+.checkbox label,
+.radio label {
+  cursor: pointer;
+  padding-left: 2rem;
+  text-indent: -2rem;
+  position: relative;
+
+  &:before {
+    background-color: white;
+    content: '\a0';
+    display: inline-block;
+    left: 2px;
+    vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+    position: relative;
+  }
+}
+
+.checkbox label:before {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 2px;
+}
+
+.radio label:before {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 99em;
+}
+
+.checkbox label:before,
+.radio label:before {
+  box-shadow: 0 0 0 2px $theme-color-base;
+  line-height: 1.25rem;
+  margin-right: .75rem;
+
+  @media print {
+    box-shadow: 0 0 0 2px $theme-color-base !important;
+  }
+}
+
+.checkbox input:checked + label:before,
+.radio input:checked + label:before {
+  background-color: $theme-color-primary;
+  box-shadow: 0 0 0 2px $theme-color-primary;
+}
+
+.radio input:checked + label:before {
+  -webkit-box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px #fff;
+
+  @media print {
+    -webkit-box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 1rem $theme-color-primary, 0 0 0 2px $theme-color-primary;
+  }
+}
+
+.checkbox input:checked + label:before {
+  background-image: url('#{$image-path}/correct8.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @media print {
+    background-image: none;
+    background-color: #fff;
+    content: url('#{$image-path}/correct8-alt.svg');
+    text-indent: 0;
+  }
+}
+
+.radio input:focus + label:before {
+  @include focus-outline;
+  outline-offset: .25rem;
+}
+
+.checkbox input:focus + label:before {
+  @include focus-outline;
+}
+
+legend {
+  margin-bottom: 0;
+  border-bottom: 1px solid $theme-color-base-lighter;
+  font-size: $theme-body-font-size;
+  font-weight: $theme-font-weight-bold;
+}
+
+fieldset {
+  margin-top: 1.5rem;
+}
+
+
+
+
+

@@ -1,0 +1,56 @@
+// Social icon block styling
+.social-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.social-link {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 2.5rem;
+  display: block;
+  height: 3.5rem;
+  width: 3rem;
+}
+
+.social-link__text {
+  @include sr-only();
+}
+
+// Social icon images
+.social-link--linkedin {
+  background-image: url(#{$image-path}/social-icons/social-icon-linkedin.svg);
+}
+
+.social-link--facebook {
+  background-image: url(#{$image-path}/social-icons/social-icon-facebook.svg);
+}
+
+.social-link--flickr {
+  background-image: url(#{$image-path}/social-icons/social-icon-flickr.svg);
+}
+
+.social-link--instagram {
+  background-image: url(#{$image-path}/social-icons/social-icon-instagram.svg);
+}
+
+.social-link--twitter {
+  background-image: url(#{$image-path}/social-icons/social-icon-twitter.svg);
+}
+
+.social-link--youtube {
+  background-image: url(#{$image-path}/social-icons/social-icon-youtube.svg);
+}
+
+.social-link--rss {
+  background-image: url(#{$image-path}/social-icons/social-icon-rss.svg);
+}
+
+.social-link--contact {
+  background-image: url(#{$image-path}/social-icons/social-icon-constant-contact.svg);
+}
+

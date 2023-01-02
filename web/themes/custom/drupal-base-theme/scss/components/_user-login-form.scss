@@ -1,0 +1,16 @@
+/**
+ * Styles for the user login form.
+ */
+
+.login-warning {
+  border: 3px solid darkred;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.login-warning__header {
+  color: darkred;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+

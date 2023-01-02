@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Template override to display a menu in the sitemap.
+ *
+ * This prevents the customized menu elements from being inserted into the
+ * sitemap.  Specifically, <nolink> menu items were being displayed as
+ * dropdown buttons.  Extending the original system module template returns
+ * the theming to its basic unordered list structure.
+ */
+#}
+{% extends "@system/menu.html.twig" %}
+

@@ -1,0 +1,17 @@
+.important-links__list {
+  @include unstyled-list();
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .important-links__list-item {
+    flex: 0 1 100%;
+    margin: .5rem;
+
+    @include media($sm) {
+      flex: 0 1 360px;
+    }
+  }
+}
+

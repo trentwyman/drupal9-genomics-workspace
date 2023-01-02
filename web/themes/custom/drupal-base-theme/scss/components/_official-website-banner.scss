@@ -1,0 +1,56 @@
+/**
+ * Styles for the official government website banner.
+ */
+.official-website-banner {
+  background: #f7f7f7;
+  color: #212121;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.official-website-banner__message {
+  font-size: .75rem;
+}
+.official-website-banner__message img{
+  margin-right: .5rem;
+  width: 1.5625rem;
+}
+.official-website-banner__trigger {
+  background: transparent;
+  border: 0;
+  color: #0071bc;
+  padding-right: 20px;
+}
+.official-website-banner__trigger.content-collapsed {
+  background: url('#{$image-path}/bluedownv.png') right 6px center no-repeat;
+}
+.official-website-banner__trigger.content-expanded {
+  background: url('#{$image-path}/blueupv.png') right 6px center no-repeat;
+}
+.official-website-banner__content {
+  display: none;
+}
+.official-website-banner__content > .content-region {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.content-region img {
+  float: left;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.content-region p {
+  padding-right: 1rem;
+  padding-left: 3.5rem;
+}
+.usa-banner__lock-image {
+  $lock-h: 64; // unitless height of svg
+  $lock-w: 52; // unitless width of svg
+  $lock-aspect: $lock-w / $lock-h;
+  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
+
+  height: $icon-height;
+  width: $icon-height * $lock-aspect;
+}
+

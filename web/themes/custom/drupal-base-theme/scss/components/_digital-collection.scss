@@ -1,0 +1,44 @@
+@include media($md) {
+  .digital-collection {
+    display: flex;
+  }
+
+  .digital-collection__header {
+    width: 33%;
+  }
+
+  .digital-collection__documents {
+    width: 67%;
+  }
+}
+
+.digital-collection__documents {
+  @include unstyled-list();
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.digital-collection__documents__list-item {
+  flex: 0 1 auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.digital-collection__document__link {
+  // 508: Ensure document images and tags are surrounded by a common outline.
+  display: block;
+  margin: 1rem .5rem;
+  text-align: center;
+}
+
+.digital-collection__document__cover-image img {
+  border: 1px solid $theme-color-base-light;
+}
+
+.digital-collection__document__tag {
+  position: relative;
+  top: -10px;
+  z-index: 1;
+}
+

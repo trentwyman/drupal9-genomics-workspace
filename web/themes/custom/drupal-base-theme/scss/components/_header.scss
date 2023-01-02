@@ -1,0 +1,55 @@
+//
+// Header region styles
+//
+
+.region-header {
+  margin-bottom: .5rem;
+
+  & > *:only-child {
+    margin-top: 1.25rem;
+  }
+}
+
+// Utility navigation
+.region-header nav ul.menu {
+  display: none;
+
+  @include media($theme-navigation-width){
+    display: block;
+    text-align: right;
+  }
+
+  li {
+    display: inline;
+    padding-left: .25rem;
+
+    & + li::before {
+      color: $theme-color-base-dark;
+      content: '|';
+      padding-right: .25rem;
+    }
+  }
+
+  a {
+    color: $theme-color-base;
+    display: inline-block;
+    font-size: $theme-navigation-font-size;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: $theme-color-primary;
+      text-decoration: underline;
+      background-color: transparent;
+    }
+  }
+}
+
+// Search forms
+.region-header form {
+  @include search-form(2rem);
+
+  @include media($sm) {
+    width: 50%;
+  }
+}
+

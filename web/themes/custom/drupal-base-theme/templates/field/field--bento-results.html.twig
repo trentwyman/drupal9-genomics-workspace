@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override for a Bento box results field
+ *
+ * CHANGELOG:
+ * - Add bento box classes
+ * - don't print field label
+ * - put items in an ordered list
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_field()
+ */
+#}
+<ul{{ attributes.setAttribute('aria-label', 'Top Results'|t).addClass(['usa-collection', 'usa-collection--condensed']) }}>
+  {% for item in items %}
+    <li class="usa-collection__item">
+      <div class="usa-collection__body">
+        <h3 class="usa-collection__heading">
+          {{ item.content }}
+        </h3>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+

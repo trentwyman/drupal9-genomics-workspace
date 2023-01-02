@@ -1,0 +1,16 @@
+.icon-group__title {
+  text-align: center;
+}
+
+.icon-group__icon {
+  @include unstyled-list();
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icon-group__icon__list-item {
+  margin: 1rem 25px;
+}
+

@@ -1,0 +1,6 @@
+name: Custom Blast
+description: Allow users to search for information on BLAST, HMMER and CLUSTAL.
+package: CustomModules
+
+type: module 
+core_version_requirement: ^8.8.0 || ^9.0

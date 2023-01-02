@@ -1,0 +1,70 @@
+@mixin bg-base-lightest() {
+  background-color: $theme-color-base-lightest;
+  color: #000;
+
+  a:not(.usa-button) {
+    color: $theme-color-primary;
+
+    &:focus,
+    &:hover {
+      color: $theme-color-primary-dark;
+    }
+  }
+}
+
+@mixin bg-base-lighter() {
+  background-color: $theme-color-base-lighter;
+  color: #000;
+
+  a:not(.usa-button) {
+    color: $theme-color-primary;
+
+    &:focus,
+    &:hover {
+      color: $theme-color-primary-dark;
+    }
+  }
+}
+
+@mixin bg-primary-dark() {
+  background-color: $theme-color-primary-dark;
+  color: #fff;
+
+  a:not(.usa-button) {
+    color: $theme-color-primary-lighter;
+
+    &:focus,
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+@mixin bg-primary-darker() {
+  background-color: $theme-color-primary-darker;
+  color: #fff;
+
+  a:not(.usa-button) {
+    color: $theme-color-primary-light;
+
+    &:focus,
+    &:hover {
+      color: $theme-color-primary-lighter;
+    }
+  }
+}
+
+@mixin bg-white() {
+  background-color: #fff;
+  color: #000;
+
+  a:not(.usa-button) {
+    color: $theme-color-primary;
+
+    &:focus,
+    &:hover {
+      color: $theme-color-primary-dark;
+    }
+  }
+}
+

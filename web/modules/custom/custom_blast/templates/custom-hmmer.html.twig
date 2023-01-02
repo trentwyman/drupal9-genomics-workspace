@@ -1,0 +1,92 @@
+<form method="post" id="MainHmmerForm" name="MainHmmerForm" enctype="multipart/form-data">  
+
+{% include '@custom_blast/templates/dataset-blast-hmmer.html.twig' with {content: content} %}
+
+<fieldset id="fieldset-query">
+  <legend id="legend-sequence">Query Sequence / Mutliple sequence alignment</legend>
+  <div class="enter-query-text">Enter sequence below in <a target="_blank" href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> / IN <a target="_blank" href="http://toolkit.tuebingen.mpg.de/reformat/help_params#format">MSA (format descriptions)</a>:</div>
+  <textarea id="query-textarea" name="query-sequence" rows="12" cols="80%" spellcheck="false" autocomplete="off"></textarea>
+  <div><span class="load-example">Or</span> load it from disk <span class="load-example-seq txt">(load sequence example)</span> <span class="load-example-aln txt">(load alignment example)</span> </div>
+  <input type="file" name="query-file" class="query-file" id="query-file">
+</fieldset>
+
+
+<fieldset id="fieldset-program">
+  <legend>Program</legend>
+  <label class="program phmmer">
+      <input type="radio" name="program" value="phmmer" checked="" class="program phmmer">
+      phmmer
+  </label>
+  <label class="program hmmsearch">
+      <input type="radio" name="program" value="hmmsearch" class="program hmmsearch">
+      hmmsearch
+  </label>
+  <div id="hmmerProgramDescription">phmmer - Protein sequence vs. Protein sequence database</div>
+</fieldset>
+
+
+
+<fieldset id="fieldset-cutoff">
+  <legend>Cut-off</legend>
+  <label class="cutoff evalue">
+      <input type="radio" name="cutoff" value="evalue" checked="checked" class="cutoff evalue">
+      E-value
+  </label>
+  <label class="cutoff bitscore">
+      <input type="radio" name="cutoff" value="bitscore" class="cutoff bitscore">
+      Bit Score
+  </label>
+  <div id="cuffoffDescription"></div>
+</fieldset>
+
+
+<div id="hmmer_options">
+  <fieldset id="fieldset-options-hmmer">
+      <legend>Cut-off values</legend>
+      <div class="parms">
+          <fieldset id="fieldset-options-hmmer-general-param">
+              <legend>Significance</legend>
+              <table id="general-param-table">
+                  <tbody><tr>
+                      <td>
+                          <span class="span-title" title="">Sequence </span>
+                      </td>
+                      <td>
+                          <input type="text" id="s_sequence" name="s_sequence" value="0.01" size="10" class="input-fields">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <span class="span-title" id="span_word_size" title="">Hit </span>
+                      </td>
+                      <td>
+                          <input type="text" id="s_hit" name="s_hit" value="0.03" size="10" class="input-fields">
+                      </td>
+                  </tr>
+              </tbody></table>
+          </fieldset>
+
+          <fieldset id="fieldset-options-hmmer-scoring-param">
+              <legend>Report </legend>
+              <table id="hmmer-scoring-param">
+                  <tbody><tr><td><span title="">Sequence </span></td>
+                      <td><input type="text" id="r_sequence" name="r_sequence" value="0.01" size="10" class="input-fields"></td></tr>
+                  <tr><td><span title="">Hit </span></td><td>
+                          <input type="text" id="r_hit" name="r_hit" value="0.03" size="10" class="input-fields"></td></tr>
+              </tbody></table>
+
+          </fieldset>
+      </div>
+  </fieldset></div>
+
+  <div>
+    <input type="button" value="Reset" class="btn_reset">
+    <input type="button" value="Search" id="hmmer_submit">
+</div>
+
+
+<script>
+  dataset_list = [{% for line in content.api_data %} [ {% for data in line %} "{{ data|trim }}", {% endfor %} ],{% endfor %}];
+</script>
+{{ attach_library('custom_blast/base_files') }}
+{{ attach_library('custom_blast/hmmer_files') }}

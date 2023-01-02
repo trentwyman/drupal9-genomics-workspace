@@ -1,0 +1,114 @@
+/*
+========================================
+COLOR SETTINGS
+----------------------------------------
+The color settings here are based off
+the USWDS color palette, but we're
+not utilizing the color tokens.
+
+Read the USWDS color system at:
+https://v2.designsystem.digital.gov/style-tokens/color
+----------------------------------------
+*/
+
+/*
+----------------------------------------
+Theme palette colors
+----------------------------------------
+*/
+
+// Base colors
+$theme-color-base-lightest:         #f0f0f0 !default; //gray-5
+$theme-color-base-lighter:          #dcdee0 !default; //gray-cool-10
+$theme-color-base-light:            #a9aeb1 !default; //gray-cool-30
+$theme-color-base:                  #71767a !default; //gray-cool-50
+$theme-color-base-dark:             #565c65 !default; //gray-cool-60
+$theme-color-base-darker:           #3d4551 !default; //gray-cool-70
+$theme-color-base-darkest:          #1b1b1b !default; //gray-90
+$theme-color-base-ink:              #1b1b1b !default; //gray-90
+
+// Primary colors
+$theme-color-primary-lighter:       #d9e8f6 !default; //blue-10
+$theme-color-primary-light:         #73b3e7 !default; //blue-30
+$theme-color-primary:               #005ea2 !default; //blue-60v
+$theme-color-primary-vivid:         #0050d8 !default; //blue-warm-60v
+$theme-color-primary-dark:          #1a4480 !default; //blue-warm-70v
+$theme-color-primary-darker:        #162e51 !default; //blue-warm-80v
+
+
+// Secondary colors
+$theme-color-secondary-lighter:     #f3e1e4 !default; //red-cool-10
+$theme-color-secondary-light:       #f2938c !default; //red-30
+$theme-color-secondary:             #d83933 !default; //red-50
+$theme-color-secondary-vivid:       #e41d3d !default; //red-cool-50v
+$theme-color-secondary-dark:        #b50909 !default; //red-60v
+$theme-color-secondary-darker:      #8b0a03 !default; //red-70v
+
+// Accent warm colors
+$theme-color-accent-warm-lighter:   #f2e4d4 !default; //orange-10
+$theme-color-accent-warm-light:     #ffbc78 !default; //orange-20v
+$theme-color-accent-warm:           #fa9441 !default; //orange-30v
+$theme-color-accent-warm-dark:      #c05600 !default; //orange-50v
+$theme-color-accent-warm-darker:    #775540 !default; //orange-60
+
+// Accent cool colors
+$theme-color-accent-cool-lighter:   #e1f3f8 !default; //blue-cool-5v
+$theme-color-accent-cool-light:     #97d4ea !default; //blue-cool-20v
+$theme-color-accent-cool:           #00bde3 !default; //cyan-30v
+$theme-color-accent-cool-dark:      #28a0cb !default; //blue-cool-40v
+$theme-color-accent-cool-darker:    #07648d !default; //blue-cool-60v
+
+/*
+----------------------------------------
+State palette colors
+----------------------------------------
+*/
+
+// Error colors
+$theme-color-error-lighter:    #f4e3db !default; //red-warm-10
+$theme-color-error-light:      #f39268 !default; //red-warm-30v
+$theme-color-error:            #d63e04 !default; //red-warm-50v
+$theme-color-error-dark:       #b50909 !default; //red-60v
+$theme-color-error-darker:     #6f3331 !default; //red-70
+
+// Warning colors
+$theme-color-warning-lighter:  #faf3d1 !default; //yellow-5
+$theme-color-warning-light:    #fee685 !default; //yellow-10v
+$theme-color-warning:          #ffbe2e !default; //gold-20v
+$theme-color-warning-dark:     #e5a000 !default; //gold-30v
+$theme-color-warning-darker:   #936f38 !default; //gold-50v
+
+// Success colors
+$theme-color-success-lighter:  #ecf3ec !default; //green-cool-5
+$theme-color-success-light:    #70e17b !default; //green-cool-20v
+$theme-color-success:          #00a91c !default; //green-cool-40v
+$theme-color-success-dark:     #4d8055 !default; //green-cool-50
+$theme-color-success-darker:   #446443 !default; //green-cool-60
+
+// Info colors
+$theme-color-info-lighter:     #e7f6f8 !default; //cyan-5
+$theme-color-info-light:       #9ddfeb !default; //cyan-20
+$theme-color-info:             #00bde3 !default; //cyan-30v
+$theme-color-info-dark:        #009ec1 !default; //cyan-40v
+$theme-color-info-darker:      #2e6276 !default; //blue-cool-60
+
+// Disabled colors
+$theme-color-disabled-light:   #e6e6e6 !default; //gray-10
+$theme-color-disabled:         #c9c9c9 !default; //gray-20
+$theme-color-disabled-dark:    #adadad !default; //gray-30
+
+/*
+----------------------------------------
+General colors
+----------------------------------------
+*/
+
+// Links
+$theme-link-color:                    $theme-color-primary !default;
+$theme-link-visited-color:            #562b97 !default;    //violet-70v
+$theme-link-hover-color:              $theme-color-primary-dark !default;
+$theme-link-active-color:             $theme-color-primary-darker !default;
+$theme-link-reverse-color: $theme-color-base-lighter !default;
+$theme-link-reverse-hover-color: $theme-color-base-lightest !default;
+$theme-link-reverse-active-color: #fff !default;
+

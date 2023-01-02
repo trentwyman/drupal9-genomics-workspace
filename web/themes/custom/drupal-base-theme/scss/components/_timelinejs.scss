@@ -1,0 +1,102 @@
+//
+// Styles for TimelineJS timelines.
+//
+// Most of these changes fix 508 issues with timelines' default styles.
+//
+
+.tl-timeline {
+  border: 1px solid $theme-color-base;
+  border-radius: 4px;
+  margin-top: 1em;
+
+  & * {
+    // The box-sizing is set to border-box for all elements, but that interferes
+    // with the timeline styling.  The TimelineJS CSS sets .timeline-box's
+    // sizing to content-box, but doesn't do so for its children.
+    box-sizing: content-box;
+  }
+
+  h2.tl-headline-title,
+  h2.tl-headline {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}
+
+.tl-menubar {
+  border: 1px solid $theme-color-primary;
+  border-left: 0;
+}
+
+.tl-menubar-button {
+  color: $theme-color-primary;
+
+  &:hover {
+    background-color: $theme-color-primary;
+    color: #fff;
+  }
+}
+
+.tl-slide a {
+  color: $theme-link-color;
+}
+
+.tl-slide,
+.tl-timeline p {
+  a:focus,
+  a:hover {
+    color: $theme-link-hover-color;
+  }
+}
+
+.tl-slide.tl-full-color-background a:hover,
+.tl-slide.tl-full-image-background a:hover,
+.tl-full-color-background .tl-text a:hover,
+.tl-full-color-background .tl-text p a:hover,
+.tl-full-image-background .tl-text a:hover,
+.tl-full-image-background .tl-text p a:hover {
+  color: $theme-color-primary-lighter;
+}
+
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon,
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon {
+  color: $theme-color-primary;
+}
+
+.tl-slidenav-previous .tl-slidenav-title,
+.tl-slidenav-next .tl-slidenav-title,
+.tl-slidenav-previous:hover .tl-slidenav-description,
+.tl-slidenav-next:hover .tl-slidenav-description {
+  opacity: .75;
+}
+
+.tl-timegroup .tl-timegroup-message {
+  color: $theme-color-base;
+}
+
+.tl-text,
+.tl-text p,
+.tl-text h3.tl-headline-date {
+  color: $theme-color-base-darker;
+}
+
+.tl-credit p {
+  color: #000;
+  font-size: 12px;
+}
+
+.tl-timemarker:hover .tl-timemarker-content-container {
+  background-color: $theme-color-base;
+  border-color: $theme-color-base-dark;
+}
+
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container [class^='tl-icon-'],
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline,
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text {
+  color: $theme-color-base-dark;
+}
+
+.tl-timemarker-media-container {
+  display: none;
+}
+

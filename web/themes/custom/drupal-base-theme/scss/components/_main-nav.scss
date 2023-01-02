@@ -1,0 +1,36 @@
+// Navbar Styles
+// -------------------------------------
+div.navbar.navbar-default {
+  @include media($theme-navigation-width) {
+    background-color: $theme-color-primary-darker;
+    min-height: auto;
+    border-radius: 0;
+  }
+}
+
+// Navigation Styles
+// -------------------------------------
+div.navbar-default .navbar-collapse ul.navbar-nav{
+  @include navigation('dark');
+}
+
+// Mobile Toggle Button
+// -------------------------------------
+.navbar-default .navbar-toggle {
+  border: none;
+  border-radius: 0;
+  background-color: $theme-color-primary;
+  color: #fff;
+  height: 3rem;
+  font-size: .8rem;
+  text-transform: uppercase;
+
+  &:hover, &:focus, &[aria-expanded=true] {
+    background-color: $theme-color-primary-darker;
+  }
+
+  &[aria-expanded=false]{
+    background-color: $theme-color-primary;
+  }
+}
+

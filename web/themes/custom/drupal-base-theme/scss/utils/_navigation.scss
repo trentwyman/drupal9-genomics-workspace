@@ -1,0 +1,133 @@
+@mixin navigation($mode: 'light'){
+
+  // Primary Links
+  // -------------------------------------
+
+
+  // Mobile
+  @include media-max($theme-navigation-width){
+    @include nav-list();
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // Full Width
+  @include media($theme-navigation-width){
+    display: flex;
+
+    li a, li button {
+      text-decoration: none;
+      font-size: $theme-navigation-font-size;
+      white-space: normal;
+      padding: 15px 10px;
+      line-height: 20px;
+    }
+
+    li button {
+      border: none;
+      background-color: transparent;
+    }
+
+    //just level 1 nav items
+    > li {
+
+      @if($mode == 'dark'){
+        &:hover a, &.active {
+          a, button {
+            background-color: $theme-color-primary;
+          }
+        }
+
+        &.active {
+          a:hover, a:focus, button:hover, button:focus {
+            color: #fff;
+          }
+        }
+      }
+
+      // ...and their direct links
+      > a, > button {
+
+        @if($mode == 'light'){
+          color: $theme-color-base-ink;
+        }
+        @else {
+          color: #fff;
+        }
+
+        display: block;
+
+        @if($mode == 'light') {
+          &:hover {
+            color: $theme-color-primary;
+            @include add-bar('bottom');
+          }
+
+          &.is-active {
+            @include add-bar('bottom');
+            background-color: transparent;
+          }
+        }
+        @else{
+          &.is-active{
+            background-color: $theme-color-primary;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  // Submenu Dropdowns
+  // -------------------------------------
+
+  li.open {
+
+    //Mobile
+    @include media-max($theme-navigation-width){
+      ul.dropdown-menu {
+        @include nav-sublist;
+      }
+
+    }
+
+    // Full Width
+    @include media($theme-navigation-width){
+      a {
+        background-color: $theme-color-primary-darker;
+        color: #fff;
+      }
+
+      ul.dropdown-menu {
+        border: none;
+        border-radius: 0;
+        background-color: $theme-color-primary-darker;
+        box-shadow: 2px 4px 4px rgba(0,0,0,.5), -2px 4px 4px rgba(0,0,0,.5);
+        width: 15rem;
+
+        > li > a {
+          padding-top: .5rem;
+          padding-bottom: .5rem;
+        }
+
+        a {
+          font-weight: $theme-font-weight-normal;
+          &:hover {text-decoration: underline;}
+        }
+
+        a.is-active{
+          background-color: $theme-color-primary;
+        }
+
+      }
+    }
+
+  }
+  
+  .navbar-text {
+    margin: 0 !important;
+  }  
+
+}

@@ -1,0 +1,54 @@
+//
+// Mixin for inline search forms
+//
+
+@mixin search-form($height: 2.5rem) {
+  align-items: flex-end;
+  display: flex;
+  margin-left: auto;
+
+  // Account for Views inline exposed form wrappers.
+  .form--inline {
+    display: flex;
+  }
+
+  & > div {
+    margin-bottom: 0;
+  }
+
+  .control-label {
+    @include sr-only();
+  }
+
+  input,
+  button {
+    height: $height;
+    margin-top: 0;
+    min-height: 2rem;
+  }
+
+  // Override text field size attributes to fix spacing issues.
+  input[type="text"] {
+    border-top-left-radius: $btn-border-radius-base;
+    border-bottom-left-radius: $btn-border-radius-base;
+    width: 100%;
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    max-width: 4rem;
+    min-width: 2.5rem;
+    padding: 0;
+    width: $height * 1.25;
+
+    &.btn .glyphicon {
+      margin: 0;
+    }
+
+    span.glyphicon + span.button-text {
+      @include sr-only();
+    }
+  }
+}
+

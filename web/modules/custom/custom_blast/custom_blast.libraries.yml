@@ -1,0 +1,23 @@
+base_files:
+  js:
+    js/libs.js: {}
+  dependencies:
+    - core/jquery
+blast_files:
+  css:
+    state:
+      css/blast.css: {}
+  js:
+    js/blast.js: {}
+hmmer_files:
+  css:
+    state:
+      css/blast.css: {}
+  js:
+    js/hmmer.js: {}
+clustal_files:
+  css:
+    state:
+      css/blast.css: {}
+  js:
+    js/clustal.js: {}

@@ -1,0 +1,29 @@
+drupal_base_theme.layout_sm:
+  label: 'Layout Small'
+  mediaQuery: 'screen and (min-width: 640px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+drupal_base_theme.sm:
+  label: 'Small'
+  mediaQuery: 'screen and (min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+drupal_base_theme.md:
+  label: 'Medium'
+  mediaQuery: 'screen and (min-width: 992px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+drupal_base_theme.lg:
+  label: 'Large'
+  mediaQuery: 'screen and (min-width: 1200px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
+

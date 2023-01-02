@@ -1,0 +1,42 @@
+/**
+ * Styles for fixing the off-canvas dialog and Layout Builder.
+ *
+ * There are various incompatibilities with Bootstrap and the USWDS.  The
+ * dialog has issues that are caused by Bootstrap's modal styles.  Layout
+ * Builder also provides a lot of its own styles, which override those that
+ * are provided by the base theme - including at least one 508 style.  So some
+ * of the fixes are here to override Layout Builder's overrides and provide
+ * the styles we need.
+ */
+/* line 12, ../scss/off-canvas.scss */
+#drupal-off-canvas select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+/* line 16, ../scss/off-canvas.scss */
+#drupal-off-canvas select[multiple] {
+  padding: 0;
+  overflow: scroll;
+}
+/* line 22, ../scss/off-canvas.scss */
+#drupal-off-canvas input[type="checkbox"],
+#drupal-off-canvas input[type="radio"] {
+  position: absolute;
+}
+/* line 27, ../scss/off-canvas.scss */
+#drupal-off-canvas .checkbox label,
+#drupal-off-canvas .radio label {
+  padding-left: 2rem;
+}
+/* line 32, ../scss/off-canvas.scss */
+#drupal-off-canvas .button:focus {
+  outline: #00bde3;
+  outline-offset: 0;
+  outline-style: solid;
+  outline-width: 0.25rem;
+}
+
+/* line 40, ../scss/off-canvas.scss */
+.ui-dialog-off-canvas {
+  overflow: scroll;
+}

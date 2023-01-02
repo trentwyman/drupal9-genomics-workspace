@@ -1,0 +1,43 @@
+name: 'NAL Base Theme'
+type: theme
+description: 'The base theme for NAL websites.  Built using Bootstrap.  Contains basic styles and templates.'
+package: 'NAL'
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap
+
+regions:
+  header: 'Header'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - drupal_base_theme/official_website_banner
+
+libraries-extend:
+  bootstrap/framework:
+    - drupal_base_theme/framework
+  core/drupal.dialog.off_canvas:
+    - drupal_base_theme/off_canvas
+  layout_builder/drupal.layout_builder:
+    - drupal_base_theme/anchor_link
+  views_timelinejs/create_timeline:
+    - drupal_base_theme/timelinejs
+
+libraries-override:
+  bootstrap/drupal.tabledrag: drupal_base_theme/tabledrag
+
+ckeditor_stylesheets:
+  - css/style.css 
+
+'interface translation project': drupal_base_theme
+'interface translation server pattern': themes/custom/drupal-base-theme/translations/%project.%language.po
+

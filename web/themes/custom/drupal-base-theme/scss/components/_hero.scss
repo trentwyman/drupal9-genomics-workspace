@@ -1,0 +1,51 @@
+.hero {
+  align-items: flex-start;
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.hero__callout {
+  flex: 0 1 100%;
+  padding: 2rem;
+
+  @include media($sm) {
+    flex: 0 1 40%;
+  }
+}
+
+.hero__callout--left {
+  margin-right: auto;
+}
+
+.hero__callout--right {
+  margin-left: auto;
+}
+
+.hero__callout--bg-light {
+  @include bg-base-lightest();
+}
+
+.hero__callout--bg-dark {
+  @include bg-primary-darker();
+}
+
+.hero__callout__heading {
+  margin-top: 0 !important;
+}
+
+.hero__background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  margin-left: calc(50% - 50vw);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: -100;
+}
+

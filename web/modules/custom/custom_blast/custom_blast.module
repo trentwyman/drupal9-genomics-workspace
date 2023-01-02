@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function custom_blast_theme($existing, $type, $theme, $path) {
+    return [
+        'custom_blast' => [
+            'variables' => [
+                'content' => NULL,
+            ]
+        ],
+        'custom_hmmer' => [
+            'variables' => [
+                'content' => NULL,
+            ]
+        ],
+        'custom_clustal' => [
+            'variables' => [
+                'content' => NULL,
+            ]
+        ]
+    ];
+}

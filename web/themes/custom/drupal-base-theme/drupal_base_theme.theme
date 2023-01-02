@@ -1,0 +1,417 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Provide a select list of layout classes in the section config form.
+ */
+function drupal_base_theme_form_layout_builder_configure_section_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['layout_settings']['class']['#type'] = 'select';
+  $form['layout_settings']['class']['#options'] = [
+    'layout--bg layout--bg--base-lightest' => t('Light Gray Background'),
+    'layout--bg layout--bg--primary-dark' => t('Dark Blue Background'),
+    'layout--bg layout--bg--primary-darker' => t('Darker Blue Background'),
+  ];
+  $form['layout_settings']['class']['#empty_value'] = '';
+}
+
+/**
+ * Prepares variables for all templates.
+ */
+function drupal_base_theme_preprocess(&$variables) {
+  global $base_path;
+
+  // Set up variables for link paths inside head.
+  $handler = \Drupal::service('theme_handler');
+  $base_theme = $handler->getTheme('drupal_base_theme');
+  $variables['base_theme_path'] = $base_path . $base_theme->getPath();
+}
+
+/**
+ * Preprocesses variables for the block__dialog_facets_link_block template.
+ */
+function drupal_base_theme_preprocess_block__dialog_facets_link_block(&$variables) {
+  $variables['content']['link']['#attributes']['class'][] = 'usa-button';
+  $variables['content']['link']['#attributes']['class'][] = 'usa-button--outline';
+}
+
+function drupal_base_theme_preprocess_block__dropdown(&$variables) {
+  $id = \Drupal\Component\Utility\Html::getUniqueId('dropdown-menu');
+  $variables['button_id'] = $id;
+  $variables['button_attributes'] = new \Drupal\Core\Template\Attribute([
+    'id' => $id,
+    'data-toggle' => 'dropdown',
+    'aria-haspopup' => 'true',
+    'aria-expanded' =>'false',
+  ]);
+}
+
+/**
+ * Preprocesses variables for the block__toc_js_block template.
+ */
+function drupal_base_theme_preprocess_block__toc_js_block(&$variables) {
+  // Add a new class to the block for better sticky styling.
+  if ($variables['elements']['#configuration']['sticky']) {
+    $variables['attributes']['class'][] = 'block-toc-js--sticky';
+  }
+}
+
+/**
+ * Preprocesses variables for the block template
+ *
+ * Default template: block.html.twig.
+ */
+function drupal_base_theme_preprocess_block(&$variables) {
+  // Add a variable for the view mode.
+  if (isset($variables['elements']['#configuration']['view_mode'])) {
+    $variables['view_mode'] = $variables['elements']['#configuration']['view_mode'];
+  }
+}
+
+/**
+ * Preprocesses variables for the system menu block template.
+ *
+ * Pass region name to menus for region-specific theming.
+ */
+function drupal_base_theme_preprocess_block__system_menu_block(&$variables) {
+  if (isset($variables['elements']['#id'])) {
+    $block_id = $variables['elements']['#id'];
+    $block = \Drupal\block\Entity\Block::load($block_id);
+
+    if ($block) {
+      $variables['content']['#attributes']['region'] = $block->getRegion();
+    }
+  }
+}
+
+/**
+ * Prepares variables for the container template.
+ *
+ * Default template: container.html.twig
+ *
+ * Ensure forms have unique IDs.
+ * @see https://www.drupal.org/project/drupal/issues/1852090#comment-13115760
+ * @todo Remove this when it's fixed in drupal core
+ */
+function drupal_base_theme_preprocess_container(&$variables) {
+  if (isset($variables['element']['#id'])) {
+    $id = $variables['element']['#id'];
+    if (substr($id, 0, 12) == 'edit-actions') {
+      $id = 'edit-actions--' . Drupal\Component\Utility\Crypt::randomBytesBase64(8);
+    }
+    $variables['element']['#id'] = $id;
+    $variables['attributes']['id'] = $id;
+  }
+}
+
+/**
+ * Preprocesses variables for the faqfield_details_formatter template.
+ *
+ * Adds a unique ID to each question for anchor linking.
+ */
+function drupal_base_theme_preprocess_faqfield_details_formatter(&$variables) {
+  $question = substr($variables['question'], 0, 25);
+  $id = \Drupal\Component\Utility\Html::getUniqueId($question);
+  $variables['attributes']['id'] = 'faq--' . $id;
+}
+
+/**
+ * Prepares variables for the USWDS Tags List field.
+ *
+ * Default template: field.html.twig
+ */
+function drupal_base_theme_preprocess_field__entity_reference__uswds_tags_list(&$variables) {
+  // Add background colors to tags.
+  foreach ($variables['element']['#items']->referencedEntities()  as $delta => $item) {
+    if ($item->get('tag_highlight')->value) {
+      $variables['items'][$delta]['attributes']->addClass('nal-tag--warm-dark');
+    }
+    else {
+      $variables['items'][$delta]['attributes']->addClass('nal-tag--disabled-light');
+    }
+  }
+}
+
+/**
+ * Prepares variables for the image template.
+ *
+ * Default template: image.html.twig
+ *
+ * (508) Adds alt attributes to all images.
+ */
+function drupal_base_theme_preprocess_image(array &$variables) {
+  if (!isset($variables['attributes']['alt'])) {
+    $variables['attributes']['alt'] = '';
+  }
+}
+
+/**
+ * Prepares variables for the form input template.
+ *
+ * Default template: input.html.twig
+ */
+function drupal_base_theme_preprocess_input(array &$variables) {
+  // Remove empty value attributes.
+  // @see https://github.com/isdapps/digitop/issues/148
+  $value = $variables['attributes']->offsetGet('value');
+  if ($value && empty($value->value())) {
+    $variables['attributes']->removeAttribute('value');
+  }
+
+  // Aria required is unneccessary because HTML5 is sufficient.
+  // @see https://github.com/isdapps/drupal-base-theme/issues/28
+  $variables['attributes']->removeAttribute('aria-required');
+
+}
+
+/**
+ * Prepares variables for the hidden form input template.
+ *
+ * Default template: input.html.twig
+ */
+function drupal_base_theme_preprocess_input__hidden(array &$variables) {
+  // The autocomplete attribute is unnecessary for hidden input elements.
+  // @see https://github.com/isdapps/digitop/issues/149
+  $variables['attributes']->removeAttribute('autocomplete');
+}
+
+/**
+ * Prepares variables for the language block links.
+ *
+ * Default template: links.html.twig
+ *
+ * 508: Remove invalid hreflang attributes from the LI elements.
+ *   @see https://github.com/isdapps/D8-nutrition-gov/issues/169
+ */
+function drupal_base_theme_preprocess_links__language_block(&$variables) {
+  foreach ($variables['links'] as $key => $link) {
+    unset($variables['links'][$key]['attributes']['hreflang']);
+  }
+}
+
+/**
+ * Prepares variables for the menu template.
+ *
+ * Default template: menu.html.twig
+ *
+ * Removes the region attribute which was inserted for region-specific theming.
+ *
+ * @see drupal_base_theme_preprocess_block__system_menu_block()
+ * @see drupal_base_theme_theme_suggestions_menu_alter()
+ */
+function drupal_base_theme_preprocess_menu(&$variables) {
+  if (isset($variables['attributes']['region'])) {
+    unset($variables['attributes']['region']);
+  }
+}
+
+/**
+ * Prepares variables for the main menu template.
+ *
+ * Default template: menu.html.twig
+ *
+ * Removes the title attributes from menu links.
+ */
+function drupal_base_theme_preprocess_menu__main(&$variables){
+  $items = $variables['items'];
+
+  foreach ($items as $key => $item){
+    $items[$key]['url'] = $item['url']->setOption('attributes', []);
+  }
+
+  $variables['items'] = $items;
+}
+
+/**
+ * Prepares variables for the Collection Item template.
+ *
+ * Default template: nal-collection-item.html.twig
+ *
+ * Remove standard elements from the content array so that {{ content }} can
+ * simply be printed inside of the collection's meta list.
+ */
+function drupal_base_theme_preprocess_nal_collection_item__collection_item(&$variables) {
+  $collection_item = $variables['elements']['#nal_collection_item'];
+  $variables['title'] = $collection_item->get('title')->value;
+  unset($variables['content']['title']);
+
+  $variables['url'] = $collection_item->get('url')->value;
+  unset($variables['content']['url']);
+
+  if (isset($variables['content']['description'])) {
+    $variables['description'] = $variables['content']['description'];
+    unset($variables['content']['description']);
+  }
+
+  if (isset($variables['content']['tags'])) {
+    $variables['tags'] = $variables['content']['tags'];
+    unset($variables['content']['tags']);
+  }
+
+  // This element needs to be removed or the content array won't be empty and
+  // the meta list UL wrapper will still be printed, getting flagged as a 508
+  // issue.
+  if (isset($variables['content']['_layout_builder'])) {
+    unset($variables['content']['_layout_builder']);
+  }
+}
+
+/**
+ * Prepares variables for the Default Collection Item template
+ *
+ * Default template: nal-collection-item.html.twig.
+ */
+function drupal_base_theme_preprocess_nal_collection_item__default__collection_item(&$variables) {
+  drupal_base_theme_preprocess_nal_collection_item__collection_item($variables);
+  $collection_item = $variables['elements']['#nal_collection_item'];
+
+  if (isset($variables['content']['thumbnail'])) {
+    $variables['thumbnail'] = $variables['content']['thumbnail'];
+    unset($variables['content']['thumbnail']);
+  }
+}
+
+/**
+ * Prepares variables for Event Collection Item template
+ *
+ * Default template: nal-collection-item.html.twig.
+ */
+function drupal_base_theme_preprocess_nal_collection_item__event__collection_item(&$variables) {
+  drupal_base_theme_preprocess_nal_collection_item__collection_item($variables);
+  $collection_item = $variables['elements']['#nal_collection_item'];
+
+  // Provide a variable that always outputs the date in the format we want for
+  // datetime attributes, as opposed to the event_date field's output which can
+  // be modified with the field display settings.
+  $date = new DateTime($collection_item->get('event_date')->value);
+  $variables['datetime'] = $date->format('Y-m-d');
+  unset($variables['content']['event_date']);
+}
+
+/**
+ * Prepares variables for the page template.
+ *
+ * Default template: page.html.twig
+ */
+function drupal_base_theme_preprocess_page(&$variables) {
+  // @todo Make this configurable so either the site name or "National
+  // Agricultural Library" can be displayed without having to change the site
+  // name to "NAL" in the system settings.  Someone might want to have a
+  // unique site name that is displayed elsewhere, like in the right side of
+  // the header.
+  $system_config = \Drupal::config('system.site');
+  $variables['site_name'] = $system_config->get('name');
+
+  // The official website banner contains an SVG for a lock icon.  That text
+  // needs to be translatable.  <svg> tags are disallowed in the translation
+  // interface though.  Also, long SVG markup may cause difficulty for
+  // for translators.  It would be best to insert the icon via a placeholder,
+  // but raw HTML can't be inserted via placeholders.  The only way to do this
+  // is to create a template variable containing the markup inside of a
+  // FormattableMarkup object, then insert that between {% trans %} tags.
+  $variables['lock_icon'] = new Drupal\Component\Render\FormattableMarkup('<span class="icon-lock"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-title banner-lock-description"><title id="banner-lock-title">Lock</title><desc id="banner-lock-description">A locked padlock</desc><path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/></svg></span>', []);
+}
+
+/**
+ * Prepares variables for the select template.
+ *
+ * Default template: select.html.twig
+ *
+ * Aria required is unnecessary. HTML5 'required' is sufficient.
+ * @see https://github.com/isdapps/digitop/issues/149
+ */
+function drupal_base_theme_preprocess_select(array &$variables){
+  $variables['attributes']->removeAttribute('aria-required');
+}
+
+/**
+ * Prepares variable for the textarea template.
+ *
+ * Default template: textarea.html.twig
+ *
+ * Aria required is unnecessary. HTML5 'required' is sufficient.
+ * @see https://github.com/isdapps/digitop/issues/149
+ */
+function drupal_base_theme_preprocess_textarea(array &$variables){
+  $variables['attributes']->removeAttribute('aria-required');
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for blocks.
+ */
+function drupal_base_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Provide suggestion for block templates by custom block type.
+  if (!empty($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+    // Add `block--BLOCK-TYPE.html.twig`.
+    $suggestions[] = 'block__' . $block->bundle();
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    if (!empty($view_mode)) {
+      // Add `block--BLOCK-TYPE--VIEW-MODE.html.twig`.
+      $suggestions[] = 'block__' . $block->bundle() . '__' . $view_mode;
+    }
+  }
+}
+
+/**
+ * Preprocesses variables for the views-view-list template.
+ *
+ * Adds the start variable to the Views List View template. The start variable
+ * can be used with an ordered list, so that numbers won't restart on each page
+ * if paginated.
+ */
+function drupal_base_theme_preprocess_views_view_list(&$variables) {
+  if ($variables['list']['type'] == "ol") {
+    $currentPage = $variables['view']->getCurrentPage();
+    $itemsPerPage = $variables['view']->getItemsPerPage();
+
+    if (!isset($variables['list']['attributes'])) {
+      $variables['list']['attributes'] = new \Drupal\Core\Template\Attribute();
+    }
+    $variables['list']['attributes']['start'] = $currentPage * $itemsPerPage + 1;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for fields.
+ */
+function drupal_base_theme_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  // Add a suggestion for a common template for collection fields.
+  if ($variables['element']['#field_name'] == 'collection_items') {
+    $suggestions[] = 'field__usa_collection';
+  }
+
+  // Add a suggestion for a common template for collection meta-item fields.
+  $is_collection_entity = $variables['element']['#entity_type'] == 'nal_collection_item';
+  $is_collection_view_mode = $variables['element']['#view_mode'] == 'collection_item';
+  $is_meta_field = !in_array($variables['element']['#field_name'], ['title', 'description', 'tags', 'thumbnail', 'event_date']);
+  if ($is_collection_entity && $is_collection_view_mode && $is_meta_field) {
+    $suggestions[] = 'field__collection_meta_item';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for forms.
+ */
+function drupal_base_theme_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  // Customize the user login form in order to add the warning messages.
+  if ($variables['element']['#id'] == 'user-login-form') {
+    $suggestions[] = 'form__user_login_form';
+  }
+}
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for menus.
+ *
+ * Adds suggestions based on template region.
+ */
+function drupal_base_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  if (isset($variables['attributes']['region']) && substr($variables['attributes']['region'], 0, 7) == 'sidebar') {
+    $suggestions[] = 'menu__uswds_side_navigation';
+  }
+}
+

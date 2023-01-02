@@ -1,0 +1,7 @@
+// Override the Layout Builder backgrounds so our layout and hero backgrounds
+// are visible.
+.layout-builder,
+.layout-builder-block {
+  background-color: transparent;
+}
+

@@ -1,0 +1,42 @@
+/**
+ * Fixes wrapping of rows for grids in Views.
+ *
+ * @see https://stackoverflow.com/a/37372492/7559724
+ */
+
+$grid-breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+) !default;
+
+$grid-columns:               12 !default;
+
+.views-bootstrap-grid.row {
+  $break-values: map-keys($grid-breakpoints);
+  @each $breakpoint in $break-values {
+    @if(index($break-values, $breakpoint) < length($break-values)) {
+      @media (min-width: #{map-get($grid-breakpoints, $breakpoint)}) and (max-width: #{map-get($grid-breakpoints, nth($break-values, index($break-values, $breakpoint)+1))}) {
+        @for $i from 1 through $grid-columns {
+          @if($grid-columns % $i == 0) {
+            .col-#{$breakpoint}-#{$i}:nth-child(#{($grid-columns/$i)}n + 1) {
+              clear: left;
+            }
+          }
+        }
+      }
+    }@else{
+      @media (min-width: #{map-get($grid-breakpoints, $breakpoint)}) {
+        @for $i from 1 through $grid-columns {
+          @if($grid-columns % $i == 0) {
+            .col-#{$breakpoint}-#{$i}:nth-child(#{($grid-columns/$i)}n + 1) {
+              clear: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,6 @@
+name: drupal-9-genomics-workspace
+recipe: pantheon
+config:
+  framework: drupal8
+  site: drupal-9-genomics-workspace
+  id: a574fe0f-95c7-48d9-be57-8504281ffcb3

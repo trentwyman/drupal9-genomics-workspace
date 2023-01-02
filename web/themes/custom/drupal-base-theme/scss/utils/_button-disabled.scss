@@ -1,0 +1,19 @@
+@mixin button-disabled {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-color: $theme-color-disabled;
+  color: #fff;
+  pointer-events: none;
+
+  &:hover,
+  &.usa-button--hover,
+  &:active,
+  &.usa-button--active,
+  &:focus,
+  &.usa-focus {
+    background-color: $theme-color-disabled;
+    border: 0;
+    box-shadow: none;
+  }
+}
+

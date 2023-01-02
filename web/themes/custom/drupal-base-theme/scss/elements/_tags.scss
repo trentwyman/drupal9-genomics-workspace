@@ -1,0 +1,52 @@
+.usa-tag {
+  font-size: .93rem;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #5c5c5c;
+  border-radius: 2px;
+  margin-right: .25rem;
+  padding: 1px .5rem;
+
+  &:only-of-type {
+    margin-right: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.usa-tag--big {
+  padding-right: .5rem;
+  padding-left: .5rem;
+  font-size: 1.0625rem;
+}
+
+.nal-tag--disabled-light {
+  background-color: $theme-color-disabled-light;
+  color: $theme-color-base-darkest;
+}
+
+.nal-tag--primary-darker {
+  background-color: $theme-color-primary-darker;
+  color: #fff;
+}
+
+.usa-collection__meta li.usa-tag.usa-tag--new,
+.nal-tag--warm-dark {
+  background-color: $theme-color-accent-warm-dark;
+  color: #fff;
+}
+
+.layout--bg--base-lightest .nal-tag--disabled-light {
+  background-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $theme-color-base-darkest;
+}
+
